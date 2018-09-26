@@ -4,9 +4,13 @@ This hasn't been tested with non-premium YouTube service.
 
 # Customization
 Change the `songs` array to any YouTube videos you want.
+
 `id` - The YouTube video ID from its respective URL.
+
 `startTime` - What second you would like the video to start at
+
 `endTime` - What second you would like the video to end at
+
 
 Note: If you want the video to start/end at 3:22 for example, your value would be `202`
 
