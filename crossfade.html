@@ -128,6 +128,9 @@
         startTime: 40
       },
       {
+        id: '41PTANtZFW0'  // Troye Sivan Bloom
+      },
+      {
         id: 'mPRy1B4t5YA'  // Charlie XCX Boys
       },
       {
@@ -153,6 +156,9 @@
       },
       {
         id: 'kHLHSlExFis'  // Ariana Grande God Is A Woman
+      },
+      {
+        id: 'WZzcY7ASQno'  // Marina and the Diamonds Froot
       },
       {
         id: 'TeccAtqd5K8'  // CRJ Run Away With Me
@@ -203,6 +209,10 @@
         startTime: 8
       },
       {
+        id: 'vwFVDxDIvHg',  // Years & Years All For You
+        endTime: 210
+      },
+      {
         id: 'X8sSXU-J8fI'  // Ozuna La Modelo
       },
       {
@@ -219,10 +229,23 @@
         endTime: 270
       },
       {
+        id: 'YynKelHGhNc', // Hayley Kiyoko What I Need
+        startTime: 45,
+        endTime: 300
+      },
+      {
+        id: 'TV-_Yuc228s', // Hayley Kiyoko Feelings
+        startTime: 70,
+        endTime: 270
+      },
+      {
         id: 'F6ImxY6hnfA'  // Robyn Call Your Girlfriend
       },
       {
         id: 'CcNo07Xp8aQ'  // Robyn Dancing On My Own
+      },
+      {
+        id: 'skOAT87JVbU'  // Years & Years Meteorite
       },
       {
         id: '7T4rz4NsYjk'  // Cher SOS
@@ -273,6 +296,9 @@
         id: 'YjtsaXwDcF0'  // Nicki Minaj Feelin Myself
       },
       {
+        id: 'v8eulIH7tU0'  // Christine and the Queens 5 Dollars
+      },
+      {
         id: 'WLUDxVezNes',  // Tegan and Sara Stop Desire
         endTime: 180
       },
@@ -284,6 +310,10 @@
       },
       {
         id: 'zxtl5ExJmag',  // Nicki Minaj Bed
+        startTime: 20
+      },
+      {
+        id: 'gDr7aTfBffU',  // Marina and the Diamonds Blue
         startTime: 20
       },
       {
@@ -335,43 +365,47 @@
       //    after the API code downloads.
       // var player;
       function onYouTubeIframeAPIReady() {
-      	for(i = 0; i < songs.length; i++) {
-      		events = {
-            'onReady': function(event) {
-              event.target.setPlaybackQuality('hd1080');
-            }
-          };
-      		if (i == 0) {
-      			events = {
-      				'onReady': function(event) {
-                event.target.setPlaybackQuality('hd1080');
-      					startVideo(event.target);
-      					fadeIn(event.target);
-                $(event.target.getIframe()).css('z-index', 100);
-      				}
-      			}
-      		}
-
-      		newPlayer = new YT.Player(`player${i}`, {
-	          height: '100%',
-	          width: '100%',
-	          videoId: songs[i].id,
-            vq: 'hd1080',
-            playerVars: { 
-              'rel': 0
-            }, 
-	          events
-	        });
-	        videoPlayers.push(newPlayer);
-      	}
+      	// Instantiate the first two songs
+        instantiateYTPlayer(0);
+        instantiateYTPlayer(1);
 
 	      // Main loop for switching songs
 	      setInterval(checkPlayerStatus, 1000);
       }
 
+      function instantiateYTPlayer(songIndex) {
+        var events = {
+          'onReady': function(event) {
+            event.target.setPlaybackQuality('hd1080');
+          }
+        };
+        if (songIndex == 0) {
+          events = {
+            'onReady': function(event) {
+              event.target.setPlaybackQuality('hd1080');
+              startVideo(event.target, songs[0].startTime, false);
+              fadeIn(event.target);
+              $(event.target.getIframe()).css('z-index', 100);
+            }
+          }
+        }
+
+        newPlayer = new YT.Player(`player${songIndex}`, {
+          height: '100%',
+          width: '100%',
+          videoId: songs[songIndex].id,
+          vq: 'hd1080',
+          playerVars: { 
+            'rel': 0
+          }, 
+          events
+        });
+        videoPlayers.push(newPlayer);
+      }
+
       function checkPlayerStatus() {
       	currentPlayer = videoPlayers[currentSong];
-      	if (!currentPlayer) {
+      	if (!currentPlayer || !(typeof currentPlayer.getDuration === 'function')) {
       		return;
       	}
 
@@ -384,8 +418,8 @@
       		endOfSong = songs[currentSong].endTime - fadeOutDuration;
       	}
 
-      	console.log('current time ' + currentTime);
-      	console.log('ending at ' + endOfSong);
+      	// console.log('current time ' + currentTime);
+      	// console.log('ending at ' + endOfSong);
 
       	if (currentTime >= endOfSong) {
       		fadeBetweenPlayers(currentPlayer, videoPlayers[currentSong + 1]);
@@ -396,6 +430,11 @@
 				loadDelay = 3000; // Autoplaying a video will load it, doesn't happen instantly
 				// We want to start the new song so it will load, but delay the fade in until it's loaded enough
 				currentSong++;
+
+        // Instantiate the video coming up next
+        instantiateYTPlayer(currentSong + 1);
+
+        // Start video for the next song        
 				startVideo(player2, songs[currentSong].startTime);
 				$(player1.getIframe()).css('z-index', 0);
 				$(player2.getIframe()).css('z-index', 100);
@@ -411,40 +450,50 @@
 			}
 
       function fadeOutAudio(player) {
-      	fadeoutInterval = setInterval(function() {
+      	fadeoutTimer = function() {
       		currentVolume = player.getVolume();
       		if (!player || currentVolume <= 0) {
-      			clearInterval(fadeoutInterval);
+            console.log('done fading audio');
+      			return;
       		} else {
       			player.setVolume(currentVolume - 1);
+            setTimeout(fadeoutTimer, 100);
       		}
-      	}, 100);
+      	};
+        fadeoutTimer();
       }
 
       function fadeInAudio(player) {
-      	fadeinInterval = setInterval(function() {
-      		currentVolume = player.getVolume();
-      		if (!player || currentVolume >= 100) {
-      			clearInterval(fadeinInterval);
-      		} else {
-      			player.setVolume(currentVolume + 1);
-      		}
-      	}, 100);
+        fadeinTimer = function() {
+          currentVolume = player.getVolume();
+          if (!player || currentVolume >= 100) {
+            console.log('done fading audio');
+            return;
+          } else {
+            player.setVolume(currentVolume + 1);
+            setTimeout(fadeinTimer, 100);
+          }
+        };
+        fadeinTimer();
       }
 
       function stopVideo(player) {
         player.stopVideo();
+        //$(player.getIframe()).remove();
+        // There is an error if you try to remove the element.
       }
 
-      function startVideo(player, seconds) {
+      function startVideo(player, seconds, setVolume = true) {
       	if (seconds) {
       		player.seekTo(seconds);
       	} else {
       		player.playVideo();
       	}
 
-      	// Set starting video audio volume to 0
-      	player.setVolume(0);
+        if (setVolume) {
+        	// Set starting video audio volume to 0
+        	player.setVolume(0);
+        }
       }
 
 			function fadeIn(player) {
