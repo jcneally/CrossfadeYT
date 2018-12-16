@@ -25,7 +25,8 @@
 			}
 		</style>
 	</head>
-	<body><!-- 
+	<body>
+  <!-- 
 		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/ffxKSjUwKdU?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/tGRzz0oqgUE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/OQitfe8u7i4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
@@ -96,6 +97,14 @@
     	// When debug is on, the videos appear stacked instead of on top of eachother, for easier viewing of the transitions
     	DEBUG = false;
 
+<<<<<<< HEAD
+      var storedPlaylist = window.localStorage.getItem('songList');
+      var songs;
+      if (storedPlaylist) {
+        songs = JSON.parse(storedPlaylist);
+      } else {
+      }
+=======
     	songs = [
       {
         id: 'E2Q52cVx7Bo' // Gorillaz Tranz
@@ -379,6 +388,7 @@
         id: 'ot1j5M5PTC4'  // Pale Waves Television Romance
       },
     	];
+>>>>>>> master
 
 
 
@@ -412,6 +422,11 @@
       }
 
       function instantiateYTPlayer(songIndex) {
+        // hit end of song list
+        if (!songs[songIndex]) {
+          return;
+        }
+
         var events = {
           'onReady': function(event) {
             event.target.setPlaybackQuality('hd1080');
