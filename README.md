@@ -1,6 +1,5 @@
 # CrossfadeYT
-Crossfade YouTube videos from a custom playlist. In order to avoid advertisements, YouTube Premium is required.
-This hasn't been tested with non-premium YouTube service.
+Crossfade YouTube videos from a custom playlist. YouTube Premium may be required to avoid advertisements, but this hasn't been tested. The embedded players seem to avoid advertisements without YT Premium.
 
 # Customization
 Change the `songs` array to any YouTube videos you want.
@@ -14,11 +13,9 @@ Change the `songs` array to any YouTube videos you want.
 
 Note: If you want the video to start/end at 3:22 for example, your value would be `202`
 
-# Steps
-There seems to be some issues with simply loading the HTML file in chrome file viewer. I was able to fix this by loading it up in MAMP/WAMP.
-1. Clone the repo into a local server such as WAMP/MAMP
-2. View `crossfade.html`
-3. That's it! The first video should begin playing and will transition between songs automatically
+# Local Development
+1. Clone the repo and place it into a local Apache server such as WAMP/MAMP
 
 # Known Issues
 - There is currently no way to skip around to different songs.
+- YouTube's fullscreen features will not work with CrossFadeYT, but the native browser fullscreen works just as well.
