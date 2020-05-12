@@ -1,21 +1,21 @@
 <html>
-	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<title>CrossFadeYT | Custom Crossfading Music Video Playlists on YouTube</title>
-		<style>
-			body {
-				padding: 0;
-				margin: 0;
-				color: #000;
-				background-color: #FFFFFF;
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>CrossFadeYT | Custom Crossfading Music Video Playlists on YouTube</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        color: #000;
+        background-color: #FFFFFF;
         font-family: Helvetica, Arial, sans-serif;
-			}
+      }
 
-			button {
-				background-color: white;
-				border: 0px;
-				border-radius: 15px;
-				padding: 5px;
+      button {
+        background-color: white;
+        border: 0px;
+        border-radius: 15px;
+        padding: 5px;
         font-family: Helvetica, Arial, sans-serif;
         height: 30px;
         width: 140px;
@@ -23,17 +23,17 @@
         border: 1px solid #ddd;
         box-shadow: 1px 1px 1px #ddd;
         text-transform: capitalize;
-			}
+      }
 
-			input {
-				border-radius: 5px;
-				padding: 10px;
+      input {
+        border-radius: 5px;
+        padding: 10px;
         display: block;
         margin: auto;
         width: 200px;
         height: 50px;
         text-align: center;
-			}
+      }
 
       a{
         text-decoration: none;
@@ -58,48 +58,39 @@
         line-height: 70px;
       }
 
-			.song-list {
-				/* min-height: 600px; */
-			}
+      .song-input {
+        padding: 10px;
+      }
 
-			.song-input {
-				padding: 10px;
-			}
+      .container {
+        padding: 0px 0px;
+      }
 
-			.container {
-				padding: 0px 0px;
-			}
-
-			.footer {
-				margin: 0px 100px;
+      .footer {
+        margin: 0px 100px;
         color: #000;
         font-style: italic;
         text-align: center;
         padding: 10px;
-			}
-
-			.gh-img {
-				width: 50px;
-				display: block;
-				margin: 20px auto;
-			}
-
-			.left-side {
-				width: 30%;
-        min-height: 100vh;
-        background-color: #eee;
-			}
-
-			.right-side {
-				width: 70%;
-			}
-
-      .total{
-        color: #aaa;
-        text-align: center;
       }
 
-      .duration{
+      .gh-img {
+        width: 50px;
+        display: block;
+        margin: 20px auto;
+      }
+
+      .left-side {
+        width: 30%;
+        min-height: 100vh;
+        background-color: #eee;
+      }
+
+      .right-side {
+        width: 70%;
+      }
+
+      .details{
         color: #aaa;
         text-align: center;
       }
@@ -117,37 +108,38 @@
       .selected{
         background-color: #2C72C7;
       }
-		</style>
-	</head>
-	<body>
-		<div class="container">
+    </style>
+  </head>
+  <body>
+    <div class="container">
 
       <div class="main-page" style="display: flex;flex-direction: row">
 
-  			<div class="left-side">
+        <div class="left-side">
 
           <div class="logo">
             <a href=index.html target="_blank">CROSSFADEYT</a>
           </div>
-          
+
           <div class="add-song-button">
             <button class="main-button" onClick="addSongButton()">Add Song</button>
           </div>
 
-          <div class="song-input"> 
-            <input type="text" placeholder="YouTube Song ID" class="song-id" name="song-id"> 
-            <input type="text" placeholder="Start Time (sec)" class="start-time" name="start-time"> 
-            <input type="text" placeholder="End Time (sec)" class="end-time" name="end-time"> 
+          <div class="song-input">
+            <input type="text" placeholder="YouTube Song ID" class="song-id" name="song-id">
+            <input type="text" placeholder="Start Time (sec)" class="start-time" name="start-time">
+            <input type="text" placeholder="End Time (sec)" class="end-time" name="end-time">
           </div>
 
-          <div class="total">Total of Songs: </div>
-          <div class="duration">Playlist Duration: </div>
-
-  			</div>
+          <div class="details">
+            <div class="total">Total of Songs: </div>
+            <div class="duration">Playlist Duration: </div>
+          </div>
+      </div>
 
         <div class="right-side">
 
-          <div class="top-nav"> 
+          <div class="top-nav">
             <a href=how-to-use.html target="_blank" style="margin:28px">HOW TO USE</a>
             <a href=info.html target="_blank" style="margin:59px">INFO</a>
           </div>
@@ -155,7 +147,7 @@
           <div class="right-buttons">
 
             <button class="main-button create-button" onClick="createPlaylist();">Create Playlist</button>
-            <button class="main-button remove-song" style="background-color: #c63d3d" onClick="removeButton()">remove song</button> 
+            <button class="main-button remove-song" style="background-color: #c63d3d" onClick="removeButton()">remove song</button>
             <button class="main-button" style="float:right" onClick="createSamplePlaylist()">Sample Playlist</button>
 
           </div>
@@ -166,352 +158,346 @@
 
       </div>
 
-  			<div class="footer">
-          Custom Crossfading Music Video Playlists on YouTube
-  				<a target="_blank" href="https://github.com/jcneally/CrossfadeYT">
-  					<img src="./gh.png" class="gh-img">
-  				</a>
-  			</div>
+      <div class="footer">
+        Custom Crossfading Music Video Playlists on YouTube
+      	<a target="_blank" href="https://github.com/jcneally/CrossfadeYT">
+      		<img src="./gh.png" class="gh-img">
+      	</a>
+      </div>
 
+    </div>
 
-		</div>
-
-		<script>
-
-        function myFunction() { //Window confirm() Method
-          confirm("Press a button!");
-        }
-
-        var samplePlaylist = [
-        {
-          id: 'pa14VNsdSYM',  // Rihanna Only Girl In The World
-          startTime: 15
-        },
-        {
-          id: 'k5TqNsr6YuQ',  // Troye Sivan My My My
-          startTime: 10
-        },
-        {
-          id: 'LXXQLa-5n5w',  // Beyonce Pretty Hurts
-          startTime: 120
-        },
-        {
-          id: '2XY3AvVgDns'  // Beyonce Countdown
-        },
-        {
-          id: 'QeWBS0JBNzQ'  // Lady Gaga Edge Of Glory
-        },
-        {
-          id: 'EBt_88nxG4c', // P!nk Beautiful Trauma
-          startTime: 15,
-          endTime: 210
-        },
-        {
-          id: 'dMK_npDG12Q'  // Lorde Green Light
-        },
-        {
-          id: 'J0DjcsK_-HY',  // Lorde Perfect Places
-          startTime: 40
-        },
-        {
-          id: '41PTANtZFW0'  // Troye Sivan Bloom
-        },
-        {
-          id: 'mPRy1B4t5YA'  // Charlie XCX Boys
-        },
-        {
-          id: 'E2Q52cVx7Bo' // Gorillaz Tranz
-        },
-        {
-          id: 'F1B9Fk_SgI0',  // Childish Gambino Feels Like Summer
-          startTime: 15
-        },
-        {
-          id: '1DhA69K3fZ4'  // Shakira Clandestino
-        },
-        {
-          id: 'sPTn0QEhxds'  // Shakira Me Enamore
-        },
-        {
-          id: 'LryQJ25CnKU',  // Jennifer Lopez El Anillo
-          startTime: 47
-        },
-        {
-          id: 'voG07pt-KYI', // Zayn Entertainer
-          startTime: 10
-        },
-        {
-          id: 'kHLHSlExFis'  // Ariana Grande God Is A Woman
-        },
-        {
-          id: 'WZzcY7ASQno'  // Marina and the Diamonds Froot
-        },
-        {
-          id: 'TeccAtqd5K8'  // CRJ Run Away With Me
-        },
-        {
-          id: 'o97_jDomyqc',  // CRJ Cut To The Feeling
-          startTime: 20
-        },
-        {
-          id: 'b1LNQBX8JwE'  // CRJ Boy Problems
-        },
-        {
-          id: '6SuMbFuKDf8'  // Backstreet Boys Dont Go Breaking My Heart
-        },
-        {
-          id: 'VkXjvHfP3MM',  // Nicki Minaj No Frauds
-          startTime: 20
-        },
-        {
-          id: 'WDZJPJV__bQ'  // Beyonce Formation
-        },
-        {
-          id: 'kbMqWXnpXcA',  // The Carters APESHIT
-          startTime: 37
-        },
-        {
-          id: 'eMymSXUN9nQ',  // Nicki Minaj Ganja Burns
-          startTime: 52
-        },
-        {
-          id: 'jdH2Sy-BlNE', // Janelle Monae Crazy Classic Life
-          startTime: 300,
-          endTime: 510
-        },
-        {
-          id: 'jdH2Sy-BlNE', // Janelle Monae Screwed
-          startTime: 925,
-          endTime: 1110
-        },
-        {
-          id: 'OQitfe8u7i4' // Ariana Grande The Light Is Coming
-        },
-        {
-          id: 'ffxKSjUwKdU'  // Ariana Grande No Tears Left To Cry
-        },
-        {
-          id: 'e1YqueG2gtQ',  // Chvrches Miracle
-          startTime: 8
-        },
-        {
-          id: 'vwFVDxDIvHg',  // Years & Years All For You
-          endTime: 210
-        },
-        {
-          id: 'X8sSXU-J8fI'  // Ozuna La Modelo
-        },
-        {
-          id: '9jI-z9QN6g8'  // Te Bote Remix
-        },
-        {
-          id: 'aEM2kOrrNJI'  // Jennifer Lopez Dinero
-        },
-        {
-          id: '3ATQvgkXT9E'  // Farruko Krippy Kush
-        },
-        {
-          id: 'NB3gWkhLkxM', // The Internet Come Over
-          endTime: 270
-        },
-        {
-          id: 'YynKelHGhNc', // Hayley Kiyoko What I Need
-          startTime: 45,
-          endTime: 300
-        },
-        {
-          id: 'TV-_Yuc228s', // Hayley Kiyoko Feelings
-          startTime: 70,
-          endTime: 270
-        },
-        {
-          id: 'F6ImxY6hnfA'  // Robyn Call Your Girlfriend
-        },
-        {
-          id: 'CcNo07Xp8aQ'  // Robyn Dancing On My Own
-        },
-        {
-          id: 'skOAT87JVbU'  // Years & Years Meteorite
-        },
-        {
-          id: '7T4rz4NsYjk'  // Cher SOS
-        },
-        {
-          id: 'bhxhNIQBKJI',  // Troye Sivan Dance To This
-          startTime: 15
-        },
-        {
-          id: 'xTlNMmZKwpA'  // Cardi B I Like It
-        },
-        {
-          id: 'hXnMSaK6C2w',  // Cardi B Bartier Cardi
-          startTime: 20
-        },
-        {
-          id: 'mTjQq5rMlEY'  // Janelle Monae Django Jane
-        },
-        {
-          id: 'tGRzz0oqgUE',  // Janelle Monae Make Me Feel
-          startTime: 30,
-        },
-        {
-          id: 'seh_fZJqB94'  // Janet Jackson Made For Now
-        },
-        {
-          id: 'YqvCptqhHfs',  // Travis Scott Stop Tryna Be God
-          startTime: 15
-        },
-        {
-          id: 'tvTRZJ-4EyI'  // Kendrick Lamar Humble
-        },
-        {
-          id: 'au2n7VVGv_c'  // Post Malone Psycho
-        },
-        {
-          id: 'uovntV3ZMDc', // Janelle Monae I Like That
-        },
-        {
-          id: 'cggNqDAtJYU',  // Lady Gaga Marry The Night
-          startTime: 450,
-          endTime: 785
-        },
-        {
-          id: 'Xn599R0ZBwg'  // Lady Gaga Perfect Illusion
-        },
-        {
-          id: 'YjtsaXwDcF0'  // Nicki Minaj Feelin Myself
-        },
-        {
-          id: 'v8eulIH7tU0'  // Christine and the Queens 5 Dollars
-        },
-        {
-          id: 'WLUDxVezNes',  // Tegan and Sara Stop Desire
-          endTime: 180
-        },
-        {
-          id: 'FTQbiNvZqaY'  // Toto Africa
-        },
-        {
-          id: 'JQbjS0_ZfJ0' // Kendrick Lamar All The Stars
-        },
-        {
-          id: 'zxtl5ExJmag',  // Nicki Minaj Bed
-          startTime: 20
-        },
-        {
-          id: 'gDr7aTfBffU',  // Marina and the Diamonds Blue
-          startTime: 20
-        },
-        {
-          id: 'PaYvlVR_BEc',  // Janelle Monae Pynk
-          startTime: 20
-        },
-        {
-          id: 'tEddixS-UoU',  // Janelle Monae QUEEN
-          startTime: 53
-        },
-        {
-          id: 'ClU3fctbGls', // P!nk What About Us
-          startTime: 40,
-          endTime: 300
-        },
-        {
-          id: 'k2qgadSvNyU',  // Dua Lipa New Rules
-          startTime: 10
-        },
-        {
-          id: 'eppa0RXRU-I'  // Nicki Minaj Barbie Tingz
-        },
-        {
-          id: 'kcRWyLMVrFM', // Cardi B Ring
-          startTime: 7
-        }
+    <script>
+      var samplePlaylist = [
+      {
+        id: 'pa14VNsdSYM',  // Rihanna Only Girl In The World
+        startTime: 15
+      },
+      {
+        id: 'k5TqNsr6YuQ',  // Troye Sivan My My My
+        startTime: 10
+      },
+      {
+        id: 'LXXQLa-5n5w',  // Beyonce Pretty Hurts
+        startTime: 120
+      },
+      {
+        id: '2XY3AvVgDns'  // Beyonce Countdown
+      },
+      {
+        id: 'QeWBS0JBNzQ'  // Lady Gaga Edge Of Glory
+      },
+      {
+        id: 'EBt_88nxG4c', // P!nk Beautiful Trauma
+        startTime: 15,
+        endTime: 210
+      },
+      {
+        id: 'dMK_npDG12Q'  // Lorde Green Light
+      },
+      {
+        id: 'J0DjcsK_-HY',  // Lorde Perfect Places
+        startTime: 40
+      },
+      {
+        id: '41PTANtZFW0'  // Troye Sivan Bloom
+      },
+      {
+        id: 'mPRy1B4t5YA'  // Charlie XCX Boys
+      },
+      {
+        id: 'E2Q52cVx7Bo' // Gorillaz Tranz
+      },
+      {
+        id: 'F1B9Fk_SgI0',  // Childish Gambino Feels Like Summer
+        startTime: 15
+      },
+      {
+        id: '1DhA69K3fZ4'  // Shakira Clandestino
+      },
+      {
+        id: 'sPTn0QEhxds'  // Shakira Me Enamore
+      },
+      {
+        id: 'LryQJ25CnKU',  // Jennifer Lopez El Anillo
+        startTime: 47
+      },
+      {
+        id: 'voG07pt-KYI', // Zayn Entertainer
+        startTime: 10
+      },
+      {
+        id: 'kHLHSlExFis'  // Ariana Grande God Is A Woman
+      },
+      {
+        id: 'WZzcY7ASQno'  // Marina and the Diamonds Froot
+      },
+      {
+        id: 'TeccAtqd5K8'  // CRJ Run Away With Me
+      },
+      {
+        id: 'o97_jDomyqc',  // CRJ Cut To The Feeling
+        startTime: 20
+      },
+      {
+        id: 'b1LNQBX8JwE'  // CRJ Boy Problems
+      },
+      {
+        id: '6SuMbFuKDf8'  // Backstreet Boys Dont Go Breaking My Heart
+      },
+      {
+        id: 'VkXjvHfP3MM',  // Nicki Minaj No Frauds
+        startTime: 20
+      },
+      {
+        id: 'WDZJPJV__bQ'  // Beyonce Formation
+      },
+      {
+        id: 'kbMqWXnpXcA',  // The Carters APESHIT
+        startTime: 37
+      },
+      {
+        id: 'eMymSXUN9nQ',  // Nicki Minaj Ganja Burns
+        startTime: 52
+      },
+      {
+        id: 'jdH2Sy-BlNE', // Janelle Monae Crazy Classic Life
+        startTime: 300,
+        endTime: 510
+      },
+      {
+        id: 'jdH2Sy-BlNE', // Janelle Monae Screwed
+        startTime: 925,
+        endTime: 1110
+      },
+      {
+        id: 'OQitfe8u7i4' // Ariana Grande The Light Is Coming
+      },
+      {
+        id: 'ffxKSjUwKdU'  // Ariana Grande No Tears Left To Cry
+      },
+      {
+        id: 'e1YqueG2gtQ',  // Chvrches Miracle
+        startTime: 8
+      },
+      {
+        id: 'vwFVDxDIvHg',  // Years & Years All For You
+        endTime: 210
+      },
+      {
+        id: 'X8sSXU-J8fI'  // Ozuna La Modelo
+      },
+      {
+        id: '9jI-z9QN6g8'  // Te Bote Remix
+      },
+      {
+        id: 'aEM2kOrrNJI'  // Jennifer Lopez Dinero
+      },
+      {
+        id: '3ATQvgkXT9E'  // Farruko Krippy Kush
+      },
+      {
+        id: 'NB3gWkhLkxM', // The Internet Come Over
+        endTime: 270
+      },
+      {
+        id: 'YynKelHGhNc', // Hayley Kiyoko What I Need
+        startTime: 45,
+        endTime: 300
+      },
+      {
+        id: 'TV-_Yuc228s', // Hayley Kiyoko Feelings
+        startTime: 70,
+        endTime: 270
+      },
+      {
+        id: 'F6ImxY6hnfA'  // Robyn Call Your Girlfriend
+      },
+      {
+        id: 'CcNo07Xp8aQ'  // Robyn Dancing On My Own
+      },
+      {
+        id: 'skOAT87JVbU'  // Years & Years Meteorite
+      },
+      {
+        id: '7T4rz4NsYjk'  // Cher SOS
+      },
+      {
+        id: 'bhxhNIQBKJI',  // Troye Sivan Dance To This
+        startTime: 15
+      },
+      {
+        id: 'xTlNMmZKwpA'  // Cardi B I Like It
+      },
+      {
+        id: 'hXnMSaK6C2w',  // Cardi B Bartier Cardi
+        startTime: 20
+      },
+      {
+        id: 'mTjQq5rMlEY'  // Janelle Monae Django Jane
+      },
+      {
+        id: 'tGRzz0oqgUE',  // Janelle Monae Make Me Feel
+        startTime: 30,
+      },
+      {
+        id: 'seh_fZJqB94'  // Janet Jackson Made For Now
+      },
+      {
+        id: 'YqvCptqhHfs',  // Travis Scott Stop Tryna Be God
+        startTime: 15
+      },
+      {
+        id: 'tvTRZJ-4EyI'  // Kendrick Lamar Humble
+      },
+      {
+        id: 'au2n7VVGv_c'  // Post Malone Psycho
+      },
+      {
+        id: 'uovntV3ZMDc', // Janelle Monae I Like That
+      },
+      {
+        id: 'cggNqDAtJYU',  // Lady Gaga Marry The Night
+        startTime: 450,
+        endTime: 785
+      },
+      {
+        id: 'Xn599R0ZBwg'  // Lady Gaga Perfect Illusion
+      },
+      {
+        id: 'YjtsaXwDcF0'  // Nicki Minaj Feelin Myself
+      },
+      {
+        id: 'v8eulIH7tU0'  // Christine and the Queens 5 Dollars
+      },
+      {
+        id: 'WLUDxVezNes',  // Tegan and Sara Stop Desire
+        endTime: 180
+      },
+      {
+        id: 'FTQbiNvZqaY'  // Toto Africa
+      },
+      {
+        id: 'JQbjS0_ZfJ0' // Kendrick Lamar All The Stars
+      },
+      {
+        id: 'zxtl5ExJmag',  // Nicki Minaj Bed
+        startTime: 20
+      },
+      {
+        id: 'gDr7aTfBffU',  // Marina and the Diamonds Blue
+        startTime: 20
+      },
+      {
+        id: 'PaYvlVR_BEc',  // Janelle Monae Pynk
+        startTime: 20
+      },
+      {
+        id: 'tEddixS-UoU',  // Janelle Monae QUEEN
+        startTime: 53
+      },
+      {
+        id: 'ClU3fctbGls', // P!nk What About Us
+        startTime: 40,
+        endTime: 300
+      },
+      {
+        id: 'k2qgadSvNyU',  // Dua Lipa New Rules
+        startTime: 10
+      },
+      {
+        id: 'eppa0RXRU-I'  // Nicki Minaj Barbie Tingz
+      },
+      {
+        id: 'kcRWyLMVrFM', // Cardi B Ring
+        startTime: 7
+      }
       ];
 
-      
+
       var songList = [];
       var selectedSongIndex;
 
       //creating a function songDetail to check if it exists youtubeLink variable inside of div songDetail, if it does, so it returns id youtubeLink variable, it it doesnt, it reurns string empty "
-			var songDetail = (youtubeLink) => (`<div class="song-detail">${youtubeLink ? youtubeLink.id : ""} </div>`);
+      var songDetail = (youtubeLink) => (`<div class="song-detail">${youtubeLink ? youtubeLink.id : ""} </div>`);
 
       //add a song to push it onto that array and save the playlist
-			function addSong(song) {
-				var el = $(songDetail(song)).appendTo('.song-list');
-        songList.push(song); 
-        savePlaylist();//every time we add a song, we add it to our local list of songs
-        
-        //to select a song
-        el.on('click', function() {
-          //to take the index of selected song
-          selectedSongIndex = $(this).index();
+      function addSong(song) {
+      var el = $(songDetail(song)).appendTo('.song-list');
+      songList.push(song);
+      savePlaylist();//every time we add a song, we add it to our local list of songs
 
-          //to select all song and then to remove the class from them
-          $('.song-detail').removeClass('selected');
-          $(this).addClass('selected'); //to select clicked element
-        });
+      //to select a song
+      el.on('click', function() {
+        //to take the index of selected song
+        selectedSongIndex = $(this).index();
 
-			}
+        //to select all song and then to remove the class from them
+                $('.song-detail').removeClass('selected');
+        $(this).addClass('selected'); //to select clicked element
+      });
+
+      }
 
       function removeButton(){
-        //if you dont select any song, so the index isnt a integer, so you do anything, you dont remove anything
-        if(typeof(selectedSongIndex) !== "number") { return;
-        }
+      //if you dont select any song, so the index isnt a integer, so you do anything, you dont remove anything
+      if(typeof(selectedSongIndex) !== "number") { return;
+      }
 
-        //remove the song from the HTML body
-        $('.song-list').children().eq(selectedSongIndex).remove();
-        //remove the song from the list
-        songList.splice(selectedSongIndex, 1);
-        savePlaylist();
-        selectedSongIndex = null;
+      //remove the song from the HTML body
+      $('.song-list').children().eq(selectedSongIndex).remove();
+      //remove the song from the list
+      songList.splice(selectedSongIndex, 1);
+      savePlaylist();
+      selectedSongIndex = null;
 
       }
 
       function addSongButton(){
 
-        var el = $('.song-input');
+      var el = $('.song-input');
 
-        var songID = el.find('.song-id').val(); //return id song value
-        var startTime = el.find('.start-time').val(); //return start time value
-        var endTime = el.find('.end-time').val(); //return end time value
+      var songID = el.find('.song-id').val(); //return id song value
+      var startTime = el.find('.start-time').val(); //return start time value
+      var endTime = el.find('.end-time').val(); //return end time value
 
-        //if you dont put type anything in id inbox, so it does nothing 
-        if(songID == ""){
-          return;
-        }
+      //if you dont put type anything in id inbox, so it does nothing
+      if(songID == ""){
+        return;
+      }
 
-        //Var song = {id: songID, startTime, endTime};
-        //addSong(song);
-        //id: songID means at the key “id” put the value of the variable songID
+      //Var song = {id: songID, startTime, endTime};
+      //addSong(song);
+      //id: songID means at the key “id” put the value of the variable songID
 
-        addSong({id: songID, startTime, endTime});
-        //after you add a song, reset all the inputs back to the empty string
-        $(".song-id").val(""); 
-        $(".start-time").val("");
-        $(".end-time").val("");
+      addSong({id: songID, startTime, endTime});
+      //after you add a song, reset all the inputs back to the empty string
+      $(".song-id").val("");
+      $(".start-time").val("");
+      $(".end-time").val("");
 
       }
 
       function savePlaylist(){
 
-        window.localStorage.setItem('songList', JSON.stringify(songList));
+      window.localStorage.setItem('songList', JSON.stringify(songList));
 
       }
 
-			function createSamplePlaylist() {
-				// Remove the first empty one
-				$('.song-detail').remove();
+      function createSamplePlaylist() {
+      // Remove the first empty one
+      $('.song-detail').remove();
 
-				samplePlaylist.forEach(function(song) {
-					addSong(song);
-				});
-			}
+      samplePlaylist.forEach(function(song) {
+      	addSong(song);
+      });
+      }
 
-			function createPlaylist() {
+      function createPlaylist() {
 
-				window.location.href = './crossfade.html'
-			}
+      window.location.href = './crossfade.html'
+      }
 
-		</script>
-	</body>
-</html>
+    </script>
+    </body>
+ </html>
