@@ -6,53 +6,76 @@
 			body {
 				padding: 0;
 				margin: 0;
-				color: #fff;
-				background-color: #333;
+				color: #000;
+				background-color: #FFFFFF;
+        font-family: Helvetica, Arial, sans-serif;
 			}
 
 			button {
 				background-color: white;
 				border: 0px;
-				border-radius: 5px;
+				border-radius: 15px;
 				padding: 5px;
+        font-family: Helvetica, Arial, sans-serif;
+        height: 30px;
+        width: 140px;
+        margin: 10px 10px;
+        border: 1px solid #ddd;
+        box-shadow: 1px 1px 1px #ddd;
+        text-transform: capitalize;
 			}
 
 			input {
 				border-radius: 5px;
-				padding: 5px;
+				padding: 10px;
+        display: block;
+        margin: auto;
+        width: 200px;
+        height: 50px;
+        text-align: center;
 			}
 
-			.main-button {
-				width: 150px;
-				height: 50px;
-				float: left;
-				margin: 0px 10px;
-			}
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
 
-			.create-button {
-				background-color: #7ccc47;
-			}
+      .logo{
+        font-size: 40px;
+        background-color: #3D6C92;
+        color: #fff;
+        height: 70px;
+        text-align: center;
+        font-weight: bold;
+        line-height: 70px;
+      }
 
-			.remove-song {
-				background-color: #c63d3d;
-				text-transform: capitalize;
-			}
+      .top-nav{
+        background-color: #3D6C92;
+        color: #fff;
+        height: 70px;
+        font-weight: bold;
+        line-height: 70px;
+      }
 
 			.song-list {
-				min-height: 600px;
+				/* min-height: 600px; */
 			}
 
-			.song-detail {
+			.song-input {
 				padding: 10px;
 			}
 
 			.container {
-				padding: 10px;
+				padding: 0px 0px;
 			}
 
 			.footer {
 				margin: 0px 100px;
-				border-top: 1px solid #222;
+        color: #000;
+        font-style: italic;
+        text-align: center;
+        padding: 10px;
 			}
 
 			.gh-img {
@@ -61,63 +84,103 @@
 				margin: 20px auto;
 			}
 
-			.tips {
-				position: fixed;
-				width: 500px;
-				height: 100%;
-				background-color: #222;
-				right: 0px;
-				top: 0px;
+			.left-side {
+				width: 30%;
+        min-height: 100vh;
+        background-color: #eee;
 			}
 
-			.about-the-site {
-				width: 500px;
-				padding: 10px;
-				margin-bottom: 15px;
-				border-radius: 5px;
-				background-color: #222;
+			.right-side {
+				width: 70%;
 			}
 
-			li {
-				margin: 10px 0px;
-			}
+      .total{
+        color: #aaa;
+        text-align: center;
+      }
+
+      .duration{
+        color: #aaa;
+        text-align: center;
+      }
+
+      .add-song-button{
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+      }
+
+      .right-buttons{
+        border-bottom: 1px solid #ddd;
+      }
+
+      .selected{
+        background-color: #2C72C7;
+      }
 		</style>
 	</head>
 	<body>
 		<div class="container">
-			<div class="tips">
-				<h2 style="text-align: center">Tips for Making Playlists</h2>
-				<ul>
-					<li><span style="color:#c63d3d">CrossFaderYT does not work in YouTube's native Fullscreen mode.</span> When viewing your created playlist, use your browser's fullscreen mode (F11 on Windows, View -> Fullscreen on Mac OSX)</li>
-					<li>YouTube song IDs come from the URL of your video. Use the Generate a Sample Playlist button to see how this works.</li>
-					<li>Start time and end times are in <span style="color:#c63d3d">seconds</span>. Leave this blank to use the entire video.</li>
-					<li>Start time and end times are in <span style="color:#c63d3d">seconds</span>. Leave this blank to use the entire video.</li>
-					<li>Contribute new features on GitHub :) See a link to the project in the footer.</li>
-				</ul>
-			</div>
-			<h2>CrossFadeYT: Create a custom music video playlist from YouTube</h2>
-			<div class="about-the-site">
-				<h3>About the Site</h3>
-				<div>
-					CrossFadeYT is meant to be a simple solution to a simple problem: play a selection of YouTube videos, one after the other, crossfading inbetween them. This code and the website is fully open source and available on GitHub for all to use, reuse, and modify.
-				</div>
-			</div>
-			<div>
-				<button class="main-button" onClick="addSong();">Add Another Song</button>
-				<button class="main-button" onClick="createSamplePlaylist()">Generate a Sample Playlist</button>
-				<button class="main-button create-button" onClick="createPlaylist();">Create your playlist!</button>
-				<div style="clear:both"></div>
-			</div>
-			<div class="song-list">
-			</div>
-			<div class="footer">
-				<a target="_blank" href="https://github.com/jcneally/CrossfadeYT">
-					<img src="./gh.png" class="gh-img">
-				</a>
-			</div>
+
+      <div class="main-page" style="display: flex;flex-direction: row">
+
+  			<div class="left-side">
+
+          <div class="logo">
+            <a href=index.html target="_blank">CROSSFADEYT</a>
+          </div>
+          
+          <div class="add-song-button">
+            <button class="main-button" onClick="addSongButton()">Add Song</button>
+          </div>
+
+          <div class="song-input"> 
+            <input type="text" placeholder="YouTube Song ID" class="song-id" name="song-id"> 
+            <input type="text" placeholder="Start Time (sec)" class="start-time" name="start-time"> 
+            <input type="text" placeholder="End Time (sec)" class="end-time" name="end-time"> 
+          </div>
+
+          <div class="total">Total of Songs: </div>
+          <div class="duration">Playlist Duration: </div>
+
+  			</div>
+
+        <div class="right-side">
+
+          <div class="top-nav"> 
+            <a href=how-to-use.html target="_blank" style="margin:28px">HOW TO USE</a>
+            <a href=info.html target="_blank" style="margin:59px">INFO</a>
+          </div>
+
+          <div class="right-buttons">
+
+            <button class="main-button create-button" onClick="createPlaylist();">Create Playlist</button>
+            <button class="main-button remove-song" style="background-color: #c63d3d" onClick="removeButton()">remove song</button> 
+            <button class="main-button" style="float:right" onClick="createSamplePlaylist()">Sample Playlist</button>
+
+          </div>
+
+          <div class="song-list"></div>
+
+        </div>
+
+      </div>
+
+  			<div class="footer">
+          Custom Crossfading Music Video Playlists on YouTube
+  				<a target="_blank" href="https://github.com/jcneally/CrossfadeYT">
+  					<img src="./gh.png" class="gh-img">
+  				</a>
+  			</div>
+
+
 		</div>
 
 		<script>
+
+        function myFunction() { //Window confirm() Method
+          confirm("Press a button!");
+        }
 
         var samplePlaylist = [
         {
@@ -365,31 +428,75 @@
         }
       ];
 
-			var songDetail = '<div class="song-detail"> \
-			<input type="text" placeholder="YouTube Song ID" class="song-id" name="song-id"> \
-			<input type="text" placeholder="Start Time (sec)" class="start-time" name="start-time"> \
-			<input type="text" placeholder="End Time (sec)" class="end-time" name="end-time"> \
-			<button class="remove-song">remove</button> \
-			</div>';
+      
+      var songList = [];
+      var selectedSongIndex;
 
-			function addSong(songDetails) {
-				var el = $(songDetail).appendTo('.song-list');
-				el.find('.remove-song').on('click', function() {
-					$(this).parent().remove();
-				});
+      //creating a function songDetail to check if it exists youtubeLink variable inside of div songDetail, if it does, so it returns id youtubeLink variable, it it doesnt, it reurns string empty "
+			var songDetail = (youtubeLink) => (`<div class="song-detail">${youtubeLink ? youtubeLink.id : ""} </div>`);
 
-				if (songDetails) {
-					el.find('.song-id').val(songDetails.id);
+      //add a song to push it onto that array and save the playlist
+			function addSong(song) {
+				var el = $(songDetail(song)).appendTo('.song-list');
+        songList.push(song); 
+        savePlaylist();//every time we add a song, we add it to our local list of songs
+        
+        //to select a song
+        el.on('click', function() {
+          //to take the index of selected song
+          selectedSongIndex = $(this).index();
 
-					if (songDetails.startTime) {
-						el.find('.start-time').val(songDetails.startTime);
-					}
+          //to select all song and then to remove the class from them
+          $('.song-detail').removeClass('selected');
+          $(this).addClass('selected'); //to select clicked element
+        });
 
-					if (songDetails.endTime) {
-						el.find('.end-time').val(songDetails.endTime);
-					}
-				}
 			}
+
+      function removeButton(){
+        //if you dont select any song, so the index isnt a integer, so you do anything, you dont remove anything
+        if(typeof(selectedSongIndex) !== "number") { return;
+        }
+
+        //remove the song from the HTML body
+        $('.song-list').children().eq(selectedSongIndex).remove();
+        //remove the song from the list
+        songList.splice(selectedSongIndex, 1);
+        savePlaylist();
+        selectedSongIndex = null;
+
+      }
+
+      function addSongButton(){
+
+        var el = $('.song-input');
+
+        var songID = el.find('.song-id').val(); //return id song value
+        var startTime = el.find('.start-time').val(); //return start time value
+        var endTime = el.find('.end-time').val(); //return end time value
+
+        //if you dont put type anything in id inbox, so it does nothing 
+        if(songID == ""){
+          return;
+        }
+
+        //Var song = {id: songID, startTime, endTime};
+        //addSong(song);
+        //id: songID means at the key “id” put the value of the variable songID
+
+        addSong({id: songID, startTime, endTime});
+        //after you add a song, reset all the inputs back to the empty string
+        $(".song-id").val(""); 
+        $(".start-time").val("");
+        $(".end-time").val("");
+
+      }
+
+      function savePlaylist(){
+
+        window.localStorage.setItem('songList', JSON.stringify(songList));
+
+      }
 
 			function createSamplePlaylist() {
 				// Remove the first empty one
@@ -401,32 +508,10 @@
 			}
 
 			function createPlaylist() {
-				// convert the inputs to json song list
-				var songList = [];
-				$('.song-detail').each(function() {
-					var song = {
-						id: $(this).find('[name="song-id"]').val()
-					};
-					
-					var startTime = parseInt($(this).find('[name="start-time"]').val()) || undefined;
-					var endTime = parseInt($(this).find('[name="end-time"]').val()) || undefined;
-					if (startTime) {
-						song.startTime = startTime;
-					}
-					if (endTime) {
-						song.endTime = endTime;
-					}
 
-					songList.push(song);
-				});
-
-				window.localStorage.setItem('songList', JSON.stringify(songList));
 				window.location.href = './crossfade.html'
 			}
 
-			addSong();
-			addSong();
-			addSong();
 		</script>
 	</body>
 </html>
