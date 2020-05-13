@@ -134,9 +134,7 @@
 
         <div class="left-side">
 
-          <div class="logo">
-            <a href=index.html target="_blank">CROSSFADEYT</a>
-          </div>
+          <a class="logo" href=index.html target="_blank">CROSSFADEYT</a>
 
           <div class="add-song-button">
             <button class="main-button" onClick="addSongButton()">Add Song</button>
@@ -458,7 +456,8 @@
 
       function removeButton(){
         //if you dont select any song, so the index isnt a integer, so you do anything, you dont remove anything
-        if(typeof(selectedSongIndex) !== "number") { return;
+        if(typeof(selectedSongIndex) !== "number") {
+          return;
         }
 
         //remove the song from the HTML body
