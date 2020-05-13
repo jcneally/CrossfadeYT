@@ -20,6 +20,10 @@
 				margin: 10px 0px;
 			}
 
+			h2{
+				text-align: center;
+			}
+
 			.logo{
 				font-size: 40px;
 				background-color: #3D6C92;
@@ -64,6 +68,24 @@
 			.right-side {
 				width: 70%;
 			}
+
+			.main-page{
+				display: flex;
+				flex-direction: row;
+			}
+
+			.how-to-use{
+				margin:28px;
+			}
+
+			.info{
+				margin:59px;
+			}
+
+			.about{
+				text-align: center;
+				margin: 20px;
+			}
 		</style>
 	</head>
 
@@ -71,33 +93,30 @@
 
 		<div class="container">
 
-			<div class="main-page" style="display: flex;flex-direction: row">
+		<div class="main-page">
 
-				<div class="logo" style="display: flex;flex-direction: row">
-			  	<a href=index.html>CROSSFADEYT</a>
-			  </div>
+			<a class="logo" href=index.html>CROSSFADEYT</a>
 
-			  <div class="top-nav">
-          <a href=how-to-use.html style="margin:28px">HOW TO USE</a>
-          <a href=info.html style="margin:59px">INFO</a>
-      	</div>
-
-
+			<div class="top-nav">
+				<a class="how-to-use" href=how-to-use.html>HOW TO USE</a>
+				<a class="info" href=info.html>INFO</a>
 			</div>
 
-			<h2 style="text-align: center">ABOUT THE SITE</h2>
+		</div>
 
-			<div class="info" style="text-align: center; margin: 10px">
-				CrossFadeYT is meant to be a simple solution to a simple problem: play a selection of YouTube videos, one after the other, crossfading inbetween them<br>
-				<br>This code and the website is fully open source and available on GitHub for all to use, reuse, and modify</br>
+		<h2>ABOUT THE SITE</h2>
+
+			<div class="about">
+			CrossFadeYT is meant to be a simple solution to a simple problem: play a selection of YouTube videos, one after the other, crossfading inbetween them<br>
+			<br>This code and the website is fully open source and available on GitHub for all to use, reuse, and modify</br>
 			</div>
 
-			<div class="footer">
-				Custom Crossfading Music Video Playlists on YouTube
-				<a target="_blank" href="https://github.com/jcneally/CrossfadeYT">
-				<img src="./gh.png" class="gh-img">
-				</a>
-			</div>
+		<div class="footer">
+			Custom Crossfading Music Video Playlists on YouTube
+			<a target="_blank" href="https://github.com/jcneally/CrossfadeYT">
+			<img src="./gh.png" class="gh-img">
+			</a>
+		</div>
 
 		</div>
 

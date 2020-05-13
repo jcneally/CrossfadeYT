@@ -108,12 +108,29 @@
       .selected{
         background-color: #2C72C7;
       }
+
+      .main-page{
+        display: flex;
+        flex-direction: row;
+      }
+
+      .how-to-use{
+        margin:28px;
+      }
+
+      .info{
+        margin:59px;
+      }
+
+      .remove-song{
+        background-color: #c63d3d;
+      }
     </style>
   </head>
   <body>
     <div class="container">
 
-      <div class="main-page" style="display: flex;flex-direction: row">
+      <div class="main-page">
 
         <div class="left-side">
 
@@ -140,14 +157,14 @@
         <div class="right-side">
 
           <div class="top-nav">
-            <a href=how-to-use.html target="_blank" style="margin:28px">HOW TO USE</a>
-            <a href=info.html target="_blank" style="margin:59px">INFO</a>
+            <a class="how-to-use" href=how-to-use.html target="_blank">HOW TO USE</a>
+            <a class="info" href=info.html target="_blank">INFO</a>
           </div>
 
           <div class="right-buttons">
 
             <button class="main-button create-button" onClick="createPlaylist();">Create Playlist</button>
-            <button class="main-button remove-song" style="background-color: #c63d3d" onClick="removeButton()">remove song</button>
+            <button class="main-button remove-song" onClick="removeButton()">remove song</button>
             <button class="main-button" style="float:right" onClick="createSamplePlaylist()">Sample Playlist</button>
 
           </div>
@@ -423,79 +440,79 @@
 
       //add a song to push it onto that array and save the playlist
       function addSong(song) {
-      var el = $(songDetail(song)).appendTo('.song-list');
-      songList.push(song);
-      savePlaylist();//every time we add a song, we add it to our local list of songs
+        var el = $(songDetail(song)).appendTo('.song-list');
+        songList.push(song);
+        savePlaylist();//every time we add a song, we add it to our local list of songs
 
-      //to select a song
-      el.on('click', function() {
-        //to take the index of selected song
-        selectedSongIndex = $(this).index();
+        //to select a song
+        el.on('click', function() {
+          //to take the index of selected song
+          selectedSongIndex = $(this).index();
 
-        //to select all song and then to remove the class from them
-                $('.song-detail').removeClass('selected');
-        $(this).addClass('selected'); //to select clicked element
+          //to select all song and then to remove the class from them
+                  $('.song-detail').removeClass('selected');
+          $(this).addClass('selected'); //to select clicked element
       });
 
       }
 
       function removeButton(){
-      //if you dont select any song, so the index isnt a integer, so you do anything, you dont remove anything
-      if(typeof(selectedSongIndex) !== "number") { return;
-      }
+        //if you dont select any song, so the index isnt a integer, so you do anything, you dont remove anything
+        if(typeof(selectedSongIndex) !== "number") { return;
+        }
 
-      //remove the song from the HTML body
-      $('.song-list').children().eq(selectedSongIndex).remove();
-      //remove the song from the list
-      songList.splice(selectedSongIndex, 1);
-      savePlaylist();
-      selectedSongIndex = null;
+        //remove the song from the HTML body
+        $('.song-list').children().eq(selectedSongIndex).remove();
+        //remove the song from the list
+        songList.splice(selectedSongIndex, 1);
+        savePlaylist();
+        selectedSongIndex = null;
 
       }
 
       function addSongButton(){
 
-      var el = $('.song-input');
+        var el = $('.song-input');
 
-      var songID = el.find('.song-id').val(); //return id song value
-      var startTime = el.find('.start-time').val(); //return start time value
-      var endTime = el.find('.end-time').val(); //return end time value
+        var songID = el.find('.song-id').val(); //return id song value
+        var startTime = el.find('.start-time').val(); //return start time value
+        var endTime = el.find('.end-time').val(); //return end time value
 
-      //if you dont put type anything in id inbox, so it does nothing
-      if(songID == ""){
-        return;
-      }
+        //if you dont put type anything in id inbox, so it does nothing
+        if(songID == ""){
+          return;
+        }
 
-      //Var song = {id: songID, startTime, endTime};
-      //addSong(song);
-      //id: songID means at the key “id” put the value of the variable songID
+        //Var song = {id: songID, startTime, endTime};
+        //addSong(song);
+        //id: songID means at the key “id” put the value of the variable songID
 
-      addSong({id: songID, startTime, endTime});
-      //after you add a song, reset all the inputs back to the empty string
-      $(".song-id").val("");
-      $(".start-time").val("");
-      $(".end-time").val("");
+        addSong({id: songID, startTime, endTime});
+        //after you add a song, reset all the inputs back to the empty string
+        $(".song-id").val("");
+        $(".start-time").val("");
+        $(".end-time").val("");
 
       }
 
       function savePlaylist(){
 
-      window.localStorage.setItem('songList', JSON.stringify(songList));
+        window.localStorage.setItem('songList', JSON.stringify(songList));
 
       }
 
       function createSamplePlaylist() {
-      // Remove the first empty one
-      $('.song-detail').remove();
+        // Remove the first empty one
+        $('.song-detail').remove();
 
-      samplePlaylist.forEach(function(song) {
-      	addSong(song);
-      });
+        samplePlaylist.forEach(function(song) {
+        	addSong(song);
+        });
       }
 
       function createPlaylist() {
 
-      window.location.href = './crossfade.html'
+        window.location.href = './crossfade.html'
       }
 
     </script>
