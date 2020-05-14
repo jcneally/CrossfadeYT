@@ -148,7 +148,7 @@
           </div>
 
           <div class="details">
-            <div class="total">Total of Songs: </div>
+            Total of Songs: <span class="total"></span>
             <div class="duration">Playlist Duration: </div>
           </div>
       </div>
@@ -449,10 +449,12 @@
           selectedSongIndex = $(this).index();
 
           //to select all song and then to remove the class from them
-                  $('.song-detail').removeClass('selected');
+          $('.song-detail').removeClass('selected');
           $(this).addClass('selected'); //to select clicked element
       });
 
+        var totalSongs = songList.length;
+        $(".total").text(totalSongs);
       }
 
       function removeButton(){
@@ -496,15 +498,11 @@
       }
 
       function savePlaylist(){
-
         window.localStorage.setItem('songList', JSON.stringify(songList));
 
       }
 
       function createSamplePlaylist() {
-        // Remove the first empty one
-        $('.song-detail').remove();
-
         samplePlaylist.forEach(function(song) {
         	addSong(song);
         });
