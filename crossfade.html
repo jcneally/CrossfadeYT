@@ -177,8 +177,6 @@
       	songDuration = currentPlayer.getDuration();
       	currentTime = currentPlayer.getCurrentTime();
 
-        console.log(songDuration);
-
         // Extra 20 seconds is to avoid the annoying recommended video UI they show at the end
       	endOfSong = songDuration - fadeOutDuration - 20;
       	if (songs[currentSong].endTime) {
