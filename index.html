@@ -512,7 +512,7 @@
 
       var songDetail = (youtubeLink) => (`<div class="song-detail">
           <div class="songNav">
-            <div class="song_item song_number">${updateSongs}</div>
+            <div class="song_item song_number"></div>
             <div class="song_item song_id"><a target="_blank" href="https://www.youtube.com/watch?v=${youtubeLink.id}">${youtubeLink.id}</a></div>
             <div class="song_item song_start">${youtubeLink.startTime}</div>
             <div class="song_item song_end">${youtubeLink.endTime}</div>
@@ -534,9 +534,6 @@
           $('.song-detail').removeClass('selected');
           $(this).addClass('selected'); //to select clicked element
         });
-
-        //var songsTotal = songList.length;
-        //$(".total").text(songsTotal);
 
         elementTotal();
         updateSongs();
@@ -621,10 +618,6 @@
 
       function createPlaylist() {
         window.location.href = './crossfade.html'
-      }
-
-      function coutingSongs(){
-
       }
 
     </script>
