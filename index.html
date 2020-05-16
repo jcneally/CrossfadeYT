@@ -233,11 +233,13 @@
 
           </div>
 
-          <div class="song-list">
+          <div class="song-list-container">
             <div class="itemBar" style="display: none">
               <div class="item item_id">Youtube ID</div>
               <div class="item item_start">Start Time</div>
               <div class="item item_end">End Time</div>
+            </div>
+            <div class="song-list">
             </div>
           </div>
 
@@ -561,6 +563,8 @@
 
         //remove the song from the HTML body
         $('.song-list').children().eq(selectedSongIndex).remove();
+
+        console.log(selectedSongIndex);
 
         //remove the song from the list
         songList.splice(selectedSongIndex, 1);
