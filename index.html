@@ -37,7 +37,69 @@
 
       a{
         text-decoration: none;
+        color: #000;
+      }
+
+      u, li{
+        list-style: none;
+      }
+
+      .song_id a:hover{
+        color: #2C72C7;
+      }
+
+      .selected a:hover{
         color: #fff;
+      }
+
+      .itemBar, .songNav{
+        border-bottom: 1px solid #ddd;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .item{
+        font-weight: bold;
+        padding: 3;
+      }
+
+      .item_id{
+        width: 155px;
+        text-align: center;
+
+      }
+
+      .item_start{
+        width: 160px;
+        text-align: center;
+      }
+
+      .item_end{
+        width: 160px;
+        text-align: center;
+      }
+
+      .song_item{
+        padding: 3;
+      }
+
+      .song_number{
+        width: 20px;
+      }
+
+      .song_id{
+        width: 165px;
+      }
+
+      .song_start{
+        width: 87px;
+        text-align: center;
+      }
+
+      .song_end{
+        width: 232px;
+        text-align: center;
       }
 
       .logo{
@@ -48,6 +110,7 @@
         text-align: center;
         font-weight: bold;
         line-height: 70px;
+        display: block;
       }
 
       .top-nav{
@@ -93,6 +156,7 @@
       .details{
         color: #aaa;
         text-align: center;
+        font-weight: bold;
       }
 
       .add-song-button{
@@ -116,15 +180,18 @@
 
       .how-to-use{
         margin:28px;
+        color: #fff;
       }
 
       .info{
         margin:59px;
+        color: #fff;
       }
 
       .remove-song{
         background-color: #c63d3d;
       }
+
     </style>
   </head>
   <body>
@@ -147,8 +214,7 @@
           </div>
 
           <div class="details">
-            <div class="total">Total of Songs: </div>
-            <div class="duration">Playlist Duration: </div>
+            TOTAL: <span class="total"></span>
           </div>
       </div>
 
@@ -167,7 +233,13 @@
 
           </div>
 
-          <div class="song-list"></div>
+          <div class="song-list">
+            <div class="itemBar" style="display: none">
+              <div class="item item_id">Youtube ID</div>
+              <div class="item item_start">Start Time</div>
+              <div class="item item_end">End Time</div>
+            </div>
+          </div>
 
         </div>
 
@@ -433,8 +505,15 @@
       var songList = [];
       var selectedSongIndex;
 
-      //creating a function songDetail to check if it exists youtubeLink variable inside of div songDetail, if it does, so it returns id youtubeLink variable, it it doesnt, it reurns string empty "
-      var songDetail = (youtubeLink) => (`<div class="song-detail">${youtubeLink ? youtubeLink.id : ""} </div>`);
+      //creating a function songDetail to check if it exists youtubeLink variable inside of div songDetail, if it does, so it returns id youtubeLink variable, it it doesnt, it returns empty string"
+      var songDetail = (youtubeLink) => (`<div class="song-detail">
+          <div class="songNav">
+            <div class="song_item song_number"></div>
+            <div class="song_item song_id"><a target="_blank" href="https://www.youtube.com/watch?v=${youtubeLink.id}">${youtubeLink.id}</a></div>
+            <div class="song_item song_start">${youtubeLink.startTime}</div>
+            <div class="song_item song_end">${youtubeLink.endTime}</div>
+          </div>
+        </div>`);
 
       //add a song to push it onto that array and save the playlist
       function addSong(song) {
@@ -448,10 +527,30 @@
           selectedSongIndex = $(this).index();
 
           //to select all song and then to remove the class from them
-                  $('.song-detail').removeClass('selected');
+          $('.song-detail').removeClass('selected');
           $(this).addClass('selected'); //to select clicked element
-      });
+        });
 
+        elementTotal();
+        updateSongs();
+
+        //to show item div when it adds a song
+        $('.itemBar').show();
+
+      }
+
+      //show total of elements added
+      function elementTotal(){
+        var songsTotal = songList.length;
+        $(".total").text(songsTotal);
+      }
+
+      //to count number of songs in list
+      function updateSongs(){
+        $(".song-detail").each(function(){
+          var songIndex = $(this).index()
+          $(this).find(".song_number").text(songIndex)
+        });
       }
 
       function removeButton(){
@@ -462,11 +561,19 @@
 
         //remove the song from the HTML body
         $('.song-list').children().eq(selectedSongIndex).remove();
+
         //remove the song from the list
         songList.splice(selectedSongIndex, 1);
         savePlaylist();
         selectedSongIndex = null;
 
+        //to hide item when it doesnt have songs
+        if(songList.length == 0){
+          $('.itemBar').hide();
+        }
+
+        elementTotal();
+        updateSongs();
       }
 
       function addSongButton(){
@@ -495,22 +602,17 @@
       }
 
       function savePlaylist(){
-
         window.localStorage.setItem('songList', JSON.stringify(songList));
 
       }
 
       function createSamplePlaylist() {
-        // Remove the first empty one
-        $('.song-detail').remove();
-
         samplePlaylist.forEach(function(song) {
         	addSong(song);
         });
       }
 
       function createPlaylist() {
-
         window.location.href = './crossfade.html'
       }
 
