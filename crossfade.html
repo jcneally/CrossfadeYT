@@ -141,13 +141,13 @@
 
         var events = {
           'onReady': function(event) {
-            event.target.setPlaybackQuality('hd1080');
+            event.target.setPlaybackQuality('hd720');
           }
         };
         if (songIndex == 0) {
           events = {
             'onReady': function(event) {
-              event.target.setPlaybackQuality('hd1080');
+              event.target.setPlaybackQuality('highres');
               startVideo(event.target, songs[0].startTime, false);
               fadeIn(event.target);
               $(event.target.getIframe()).css('z-index', 100);
@@ -159,7 +159,7 @@
           height: '100%',
           width: '100%',
           videoId: songs[songIndex].id,
-          vq: 'hd1080',
+          vq: 'hd720',
           playerVars: {
             'rel': 0
           },
@@ -204,6 +204,9 @@
 				$(player1.getIframe()).css('z-index', 0);
 				$(player2.getIframe()).css('z-index', 100);
 
+        // Lower the quality of current video because of double videos playing
+        player1.setPlaybackQuality('hd720');
+
 				setTimeout(function() {
 					fadeIn(player2);
           fadeOut(player1);
@@ -233,6 +236,7 @@
           currentVolume = player.getVolume();
           if (!player || currentVolume >= 100) {
             console.log('done fading audio');
+            player.setPlaybackQuality('hd1080');
             return;
           } else {
             player.setVolume(currentVolume + 1);
