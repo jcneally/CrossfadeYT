@@ -1,7 +1,7 @@
 {
-  "name": "test-automation",
+  "name": "CrossfadeYT",
   "version": "1.0.0",
-  "description": "Test automation sample",
+  "description": "Website to Custom Crossfading Music Video Playlists on YouTube",
   "main": "index.js",
   "scripts": {
     "test": "npx wdio wdio.conf.js",
@@ -9,14 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jcneally/test-automation.git"
+    "url": "git+https://github.com/jcneally/CrossfadeYT.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jcneally/test-automation/issues"
+    "url": "https://github.com/jcneally/CrossfadeYT/issues"
   },
-  "homepage": "https://github.com/jcneally/test-automation#readme",
+  "homepage": "https://github.com/jcneally/CrossfadeYT#README",
   "devDependencies": {
     "@wdio/cli": "^6.1.4",
     "@wdio/local-runner": "^6.1.4",

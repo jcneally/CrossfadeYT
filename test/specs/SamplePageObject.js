@@ -1,4 +1,4 @@
-const SELECTORS = {
+/*const SELECTORS = {
  menuButton: '#nav-hamburger-menu',
  searchInput: '#twotabsearchtextbox',
  searchBar: '#nav-search > form > div.nav-right > div > input',
@@ -43,10 +43,10 @@ class AmazonHomepage {
  }
 
  signIn(inputEmail, inputPassword){
- 	this.getElement('accountLists').moveTo(); //to show account menu when it is hovering 
+ 	this.getElement('accountLists').moveTo(); //to show account menu when it is hovering
  	this.getElement('signInButton').click(); //clicking on sign in button
 
- 	const addEmail = this.getElement('email'); 
+ 	const addEmail = this.getElement('email');
  	addEmail.setValue(inputEmail); //adding email on login
  	console.log(addEmail.getValue());
 
@@ -63,3 +63,4 @@ class AmazonHomepage {
 }
 
 module.exports = AmazonHomepage;
+*/
