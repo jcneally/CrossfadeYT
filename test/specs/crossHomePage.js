@@ -1,7 +1,7 @@
 const SELECTORS={
-  logoLink: 'body > div > div.main-page > div.left-side > a',
-  howToLink: 'body > div > div.main-page > div.right-side > div.top-nav > a.how-to-use',
-  infoLink: 'body > div > div.main-page > div.right-side > div.top-nav > a.info',
+  logoLink: '.logo',
+  howToLink: '.how-to-use',
+  infoLink: '.info',
 }
 
 class crossHomePage{

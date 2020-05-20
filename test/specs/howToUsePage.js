@@ -5,9 +5,7 @@ describe('crossfadeYT Music Video', function(){
     const crossfadeYT = new crossHomePage();
 
     crossfadeYT.open();
-    browser.pause(2000)
     crossfadeYT.how_to_use_page();
-    browser.pause(2000)
 
     browser.url('http://localhost:3000/how-to-use');
     expect(browser).toHaveUrl('http://localhost:3000/how-to-use');
