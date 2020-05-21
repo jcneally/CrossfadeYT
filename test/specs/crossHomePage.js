@@ -1,28 +1,28 @@
 const SELECTORS={
-  logoLink: '.logo',
-  howToLink: '.how-to-use',
-  infoLink: '.info',
+  logoButton: '.logo',
+  howToButton: '.how-to-use',
+  infoButton: '.info',
 }
 
 class crossHomePage{
   open(){
-    browser.url('http://localhost:3000/');
+    browser.url('/');
   }
 
  getElement(selectorName) {
   return browser.$(SELECTORS[selectorName]);
  }
 
-logo_page(){
-  this.getElement('logoLink').click();
+clickLogoButton(){
+  this.getElement('logoButton').click();
 }
 
-how_to_use_page(){
-  this.getElement('howToLink').click();
+clickHowToUseButton(){
+  this.getElement('howToButton').click();
 }
 
-info_page(){
-  this.getElement('infoLink').click();
+clickInfoButton(){
+  this.getElement('infoButton').click();
 }
 
 }
