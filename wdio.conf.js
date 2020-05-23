@@ -19,6 +19,19 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
+
+    // define specific suites
+    suites: {
+        homeButtons: [
+          './test/specs/homeButtons.js',
+        ],
+        buttons:[
+          './test/specs/buttons.js'
+        ],
+        otherFeature: [
+            // ...
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -65,7 +78,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
