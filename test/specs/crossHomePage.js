@@ -45,8 +45,7 @@ addSong(youtubeID, start, end){
 }
 
 removeSong(){
-  const selectedSong = this.getElement('addedSong').click();
-  //this.getElement('selectedSong').isSelected();
+  this.getElement('addedSong').click();
   this.getElement('removeButton').click();
 }
 
