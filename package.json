@@ -4,7 +4,7 @@
   "description": "Website to Custom Crossfading Music Video Playlists on YouTube",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js",
+    "test": "node ./src/scripts/start_server.js && npx wdio wdio.conf.js && node ./src/scripts/stop_server.js",
     "start": "npx ./src/index.js"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "@wdio/spec-reporter": "^6.0.16",
     "@wdio/sync": "^5.20.1",
     "chromedriver": "^83.0.0",
+    "kill-port": "^1.6.0",
     "wdio-chromedriver-service": "^5.0.0",
     "webdriverio": "^5.22.4"
   },
