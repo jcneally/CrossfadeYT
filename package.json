@@ -4,7 +4,7 @@
   "description": "Website to Custom Crossfading Music Video Playlists on YouTube",
   "main": "index.js",
   "scripts": {
-    "test": "node ./src/scripts/start_server.js && npx wdio wdio.conf.js && node ./src/scripts/stop_server.js",
+    "test": "(node ./src/scripts/start_server.js &) && npx wdio wdio.conf.js && node ./src/scripts/stop_server.js",
     "start": "npx ./src/index.js"
   },
   "repository": {
