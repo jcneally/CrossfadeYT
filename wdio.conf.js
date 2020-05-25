@@ -25,8 +25,11 @@ exports.config = {
         homeButtons: [
           './test/specs/homeButtons.js',
         ],
-        buttons:[
-          './test/specs/buttons.js'
+        addButton:[
+          './test/specs/addButton.js'
+        ],
+        removeButton:[
+          './test/specs/removeButton.js'
         ],
         otherFeature: [
             // ...
@@ -187,8 +190,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function() {
+      var chai = require('chai');
+      global.expect = chai.expect;
+    }
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

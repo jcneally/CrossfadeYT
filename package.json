@@ -25,6 +25,7 @@
     "wdio-chromedriver-service": "^6.0.2"
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "express": "^4.17.1"
   }
 }
