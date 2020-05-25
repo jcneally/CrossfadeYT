@@ -89,7 +89,7 @@ describe('CrossfadeYT test cases for remove button', function(){
     expect(listOfSongs).to.have.lengthOf(1);
   })
 
-  //FEATURE: CROSS-21
+  //FUTURE FEATURE: CROSS-21
   it.skip('should remove multiple songs at once', function(){
     const crossfadeYT = new crossHomePage();
 
