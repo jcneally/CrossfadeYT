@@ -19,6 +19,22 @@ const config = {
     specs: [
         './test/specs/**/*.js'
     ],
+
+    // define specific suites
+    suites: {
+        homeButtons: [
+          './test/specs/homeButtons.js',
+        ],
+        addButton:[
+          './test/specs/addButton.js'
+        ],
+        removeButton:[
+          './test/specs/removeButton.js'
+        ],
+        otherFeature: [
+            // ...
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -66,7 +82,7 @@ const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -175,8 +191,10 @@ const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function() {
+      var chai = require('chai');
+      global.expect = chai.expect;
+    }
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
