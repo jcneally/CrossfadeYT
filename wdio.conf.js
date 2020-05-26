@@ -1,4 +1,4 @@
-exports.config = {
+const config = {
     //
     // ====================
     // Runner Configuration
@@ -39,6 +39,7 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    path: '/',
     //
     // ============
     // Capabilities
@@ -280,4 +281,35 @@ exports.config = {
     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
+};
+
+// Run with Browserstack
+if (process.env.BROWSERSTACK_USERNAME) {
+    console.log(`
+        //*******************************************************//
+        *
+        *    Running tests in BrowserStack.
+        *    Please view them on https://automate.browserstack.com/dashboard/v2/
+        *
+        //*******************************************************//
+    `);
+
+    config.user = process.env.BROWSERSTACK_USERNAME;
+    config.key = process.env.BROWSERSTACK_ACCESS_KEY;
+    config.capabilities = [{
+        browser: 'chrome',
+        name: 'local_test',
+        build: 'CrossfadeYT',
+        'browserstack.local': true
+    }];
+    config.host = 'hub.browserstack.com';
+    config.browserstackLocal = true;
+    config.services = [['browserstack', {
+        browserstackLocal: true
+    }]];
+    config.updateJob = false;
+
+    delete config.path;
 }
+
+exports.config = config;
