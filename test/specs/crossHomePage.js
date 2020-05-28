@@ -46,14 +46,30 @@ class crossHomePage{
   }
 
   addSong(youtubeID, start, end){
+
     const songInput = this.getElement('idInput');
+    songInput.click()
     songInput.addValue(youtubeID);
 
+    browser.waitUntil(() => {
+      return songInput.getValue() == youtubeID;
+    })
+
     const startTime = this.getElement('startInput');
+    startTime.click();
     startTime.addValue(start);
 
+    browser.waitUntil(() => {
+      return startTime.getValue() == start;
+    })
+
     const endTime = this.getElement('endInput');
+    endTime.click();
     endTime.addValue(end);
+
+    browser.waitUntil(() => {
+      return endTime.getValue() == end;
+    })
 
     this.getElement('addSongButton').click();
   }

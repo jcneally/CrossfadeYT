@@ -16,7 +16,7 @@ describe('CrossfadeYT test cases for remove button', function(){
     const crossfadeYT = new crossHomePage();
 
     crossfadeYT.open(); //open crossfadeyt home page
-    crossfadeYT.addSong(['rYEDA3JcQqw', '10', '100']); //add a song
+    crossfadeYT.addSong('rYEDA3JcQqw', '10', '100'); //add a song
     crossfadeYT.addSong('MSFjYe54uv4', '50', '100'); //add a song
     crossfadeYT.addSong('E07s5ZYygMg', '40', '120'); //add a song
     crossfadeYT.removeSong([2]); //remove the last song
