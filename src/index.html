@@ -550,8 +550,8 @@
       //to count number of songs in list
       function updateSongs(){
         $(".song-detail").each(function(){
-          var songIndex = $(this).index()
-          $(this).find(".song_number").text(songIndex)
+          var songIndex = $(this).index();
+          $(this).find(".song_number").text(songIndex + 1);
         });
       }
 
