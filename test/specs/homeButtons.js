@@ -8,7 +8,7 @@ describe('CrossfadeYT test cases for navigating to other pages', function(){
     crossfadeYT.open(); //open crossfadeyt home page
     crossfadeYT.clickLogoButton(); //click on logo
     browser.switchWindow('http://localhost:3000/'); //switch to new home page
-    expect(browser).toHaveUrl('http://localhost:3000/'); //check if it is on home page
+    expect(browser.getUrl()).to.equal('http://localhost:3000/'); //check if it is on home page
 
   })
 
@@ -19,7 +19,7 @@ describe('CrossfadeYT test cases for navigating to other pages', function(){
     crossfadeYT.open(); //open crossfadeyt home page
     crossfadeYT.clickHowToUseButton(); //click on how to use button
     browser.switchWindow('http://localhost:3000/how-to-use'); //switch to new how to use page
-    expect(browser).toHaveUrl('http://localhost:3000/how-to-use'); //check if it is on how to use page
+    expect(browser.getUrl()).to.equal('http://localhost:3000/how-to-use'); //check if it is on how to use page
 
   })
 
@@ -30,7 +30,7 @@ describe('CrossfadeYT test cases for navigating to other pages', function(){
     crossfadeYT.open(); //open crossfadeyt home page
     crossfadeYT.clickInfoButton(); //click on info button
     browser.switchWindow('http://localhost:3000/info'); //switch to new info page
-    expect(browser).toHaveUrl('http://localhost:3000/info'); //check if it is on info page
+    expect(browser.getUrl()).to.equal('http://localhost:3000/info'); //check if it is on info page
 
   })
 
