@@ -57,6 +57,11 @@ export default function Home() {
     setEndTime('');
   }
 
+  const updateSongId = (input) => {
+    const songId = input.includes('?v=') ? input.match(/\?v=(.*)&?/)[1] : input;
+    setSongId(songId);
+  }
+
   function savePlaylist() {
     window.localStorage.setItem('songList', JSON.stringify(songList));
   }
@@ -93,7 +98,7 @@ export default function Home() {
                 className="song-id"
                 name="song-id"
                 value={songId}
-                onChange={(e) => setSongId(e.target.value)}
+                onChange={(e) => updateSongId(e.target.value)}
               />
               <input
                 type="text"
