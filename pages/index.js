@@ -3,12 +3,7 @@ import Head from 'next/head';
 import samplePlaylist from '../src/lib/samplePlaylist';
 
 export default function Home() {
-  let startingSongs = [];
-  if (typeof window !== 'undefined') {
-    startingSongs = JSON.parse(window.localStorage.getItem('songList'));
-  }
-
-  const [songList, setSongList] = useState(startingSongs);
+  const [songList, setSongList] = useState([]);
   const [songId, setSongId] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
