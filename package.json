@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Website to Custom Crossfading Music Video Playlists on YouTube",
   "main": "index.js",
-  "scripts": {
-    "test": "(node ./src/scripts/start_server.js &) && npx wdio wdio.conf.js && node ./src/scripts/stop_server.js",
-    "start": "npx ./src/index.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jcneally/CrossfadeYT.git"
@@ -15,6 +11,17 @@
     "url": "https://github.com/jcneally/CrossfadeYT/issues"
   },
   "homepage": "https://github.com/jcneally/CrossfadeYT#README",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.5.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
   "devDependencies": {
     "@wdio/browserstack-service": "^5.0.0",
     "@wdio/cli": "^5.22.4",
@@ -22,13 +29,9 @@
     "@wdio/mocha-framework": "^6.1.0",
     "@wdio/spec-reporter": "^6.0.16",
     "@wdio/sync": "^5.20.1",
+    "chai": "^4.2.0",
     "chromedriver": "^83.0.0",
-    "kill-port": "^1.6.0",
     "wdio-chromedriver-service": "^5.0.0",
     "webdriverio": "^5.22.4"
-  },
-  "dependencies": {
-    "chai": "^4.2.0",
-    "express": "^4.17.1"
   }
 }
